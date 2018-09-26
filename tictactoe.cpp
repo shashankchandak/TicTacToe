@@ -1,22 +1,20 @@
 #include<iostream>
 using namespace std;
-class tictactoe
-{
+class tictactoe{
+    
     int a[3][3];
     int i=0,j=0;
 public:
-    tictactoe()
-    {
-        for(int m=0;m<3;m++)
-        {
-            for(int n=0;n<3;n++)
-            {
+    tictactoe(){
+        
+        for(int m=0;m<3;m++){
+            for(int n=0;n<3;n++){
                 a[m][n]=-1;
             }
         }
     }
-    char crossornut(int i,int j)
-    {
+    char crossornut(int i,int j){
+        
         if(a[i][j]==-1)
           return ' ';
         if(a[i][j]==0)
@@ -29,34 +27,35 @@ public:
     bool winorlose();
     void clearboard();
 };
-void tictactoe::game()
-{
+void tictactoe::game(){
+    
     int c=0;
     bool win=false;
     displayboard();
-    do
-    {
-    P1:cout<<"player one enter your choice "<<endl;
-    cout<<"enter the row:  ";
-    cin>>i;
-    i--;
-    cout<<"enter the coloumn: ";
-    cin>>j;
-    j--;
-    if(a[i][j]==0||a[i][j]==1)
-    {
-        cout<<"already filled \n enter a valid place "<<endl;
-        goto P1;
+    do{
+        
+        P1:cout<<"player one enter your choice "<<endl;
+        cout<<"enter the row:  ";
+        cin>>i;
+        i--;
+        cout<<"enter the coloumn: ";
+        cin>>j;
+        j--;
+        
+        if(a[i][j]==0||a[i][j]==1){
+            cout<<"already filled \n enter a valid place "<<endl;
+            goto P1;
     }
-    else
-    {
-    a[i][j]=0;
-    c++;
+    else{
+        
+        a[i][j]=0;
+        c++;
     }
     displayboard();
     win=winorlose();
-    if(win)
-    {
+    
+    if(win){
+        
         cout<<"player one has won "<<endl;
         break;
     }
@@ -69,15 +68,13 @@ void tictactoe::game()
     cout<<"enter the coloumn: ";
     cin>>j;
     j--;
-     if(a[i][j]==0||a[i][j]==1)
-    {
+     if(a[i][j]==0||a[i][j]==1){
         cout<<"already filled \n enter a valid place "<<endl;
         goto P2;
     }
-    else
-    {
-    a[i][j]=1;
-    c++;
+    else{
+        a[i][j]=1;
+        c++;
     }
      displayboard();
      win=winorlose();
@@ -146,12 +143,11 @@ int main()
 {
     tictactoe t;
     char c;
-    do
-    {
-    t.game();
-    cout<<"would you like to continue "<<endl;
-    cin>>c;
-    t.clearboard();
+    do{
+        t.game();
+        cout<<"would you like to continue "<<endl;
+        cin>>c;
+        t.clearboard();
     }
     while(c=='y');
     return 0;
